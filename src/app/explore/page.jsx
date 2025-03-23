@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DashboardHeader from "@/components/dashboard-header";
 import { Search } from "lucide-react";
+import PokemonCard from "@/components/pokemon-card";
 
 export default function ExplorePage() {
   const [pokemons, setPokemons] = useState([]);
@@ -100,64 +101,11 @@ export default function ExplorePage() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredPokemons.map((pokemon) => (
-              <Card
+              <PokemonCard
                 key={pokemon.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <CardHeader className="p-4 bg-gray-50">
-                  <CardTitle className="capitalize">{pokemon.name}</CardTitle>
-                  <div className="flex justify-between items-center">
-                    <Badge variant="outline" className="capitalize">
-                      {pokemon.type}
-                    </Badge>
-                    <Badge
-                      className={
-                        pokemon.rarity === "Common"
-                          ? "bg-gray-500"
-                          : pokemon.rarity === "Uncommon"
-                          ? "bg-green-500"
-                          : pokemon.rarity === "Rare"
-                          ? "bg-red-500"
-                          : pokemon.rarity === "Epic"
-                          ? "bg-purple-500"
-                          : "bg-yellow-500"
-                      }
-                    >
-                      {pokemon.rarity}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <div className="relative h-40 w-full mb-4 bg-gray-100 rounded-md">
-                    <Image
-                      src={pokemon.image || "/placeholder.svg"}
-                      alt={pokemon.name}
-                      fill
-                      className="object-contain p-2"
-                    />
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm text-gray-500">
-                      Level:{" "}
-                      <span className="font-semibold">{pokemon.level}</span>
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      Owner:{" "}
-                      <span className="font-semibold">{pokemon.owner}</span>
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter className="p-4 bg-gray-50 flex justify-between">
-                  <Link href={`/pokemon/${pokemon.id}`}>
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
-                  </Link>
-                  <Link href={`/trade/propose?pokemon=${pokemon.id}`}>
-                    <Button size="sm">Propose Trade</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
+                pokemon={pokemon}
+                ourCollection={false}
+              />
             ))}
           </div>
         )}

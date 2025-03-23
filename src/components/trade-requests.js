@@ -110,10 +110,16 @@ export default function TradeRequests({ tradeRequests, loading }) {
             </div>
           </CardContent>
           <CardFooter className="p-4 bg-gray-50 flex justify-end gap-2">
-            <Button variant="outline" size="sm">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => alert("Decline trade")}
+            >
               Decline
             </Button>
-            <Button size="sm">Accept Trade</Button>
+            <Button size="sm" onClick={() => alert("Accept trade")}>
+              Accept Trade
+            </Button>
           </CardFooter>
         </Card>
       ))}
