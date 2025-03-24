@@ -80,7 +80,7 @@ export default function DashboardHeader() {
           </nav>
         </div>
 
-        {/* User Menu */}
+      {/* User Menu */}
         <div className="flex items-center gap-2">
           <form onSubmit={handleSearch} className="flex items-center">
             <input
