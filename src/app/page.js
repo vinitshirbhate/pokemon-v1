@@ -52,7 +52,7 @@ export default function Home() {
                   Pokémon #{id}
                 </h3>
                 <p className="text-sm text-slate-500">Owned by: Trainer{id}</p>
-                <Link href={`/pokemon/${id}`} className="mt-2">
+                <Link href={`/trade/propose?pokemon=${id}`} className="mt-2">
                   <Button variant="outline" size="sm" className="w-full">
                     View Details
                   </Button>

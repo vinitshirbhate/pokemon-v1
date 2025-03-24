@@ -24,7 +24,6 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Simulate API call to fetch user's Pokémon collection
         const response = await fetch(
           "https://pokeapi.co/api/v2/pokemon?limit=6"
         );

@@ -12,11 +12,9 @@ import DashboardHeader from "@/components/dashboard-header";
 export default function ProposeTradePage() {
   const [targetPokemon, setTargetPokemon] = useState(null);
   const [myPokemons, setMyPokemons] = useState([]);
-  const [selectedPokemon, setSelectedPokemon] =
-    (useState < number) | (null > null);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const pokemonId = searchParams.get("pokemon");
@@ -25,7 +23,6 @@ export default function ProposeTradePage() {
     const fetchData = async () => {
       try {
         if (pokemonId) {
-          // Fetch the target Pokémon
           const response = await fetch(
             `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
           );
